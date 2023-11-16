@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dice Roll Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <h1>Dice Roll Simulator</h1>
+    <p>Select an option from the menu and then click the button.</p>
+    <p>
+      <select id="menu">
+        <option value="roll-once">Roll Dice Once</option>
+        <option value="roll-five">Roll Dice 5 Times</option>
+        <option value="roll-n">Roll Dice 'n' Times'</option>
+        <option value="snake-eyes">Roll Dice until Snake Eyes</option>
+      </select>
+      <button id="go-btn">GO</button>
+    </p>
+    <p># of times snake eyes has been rolled: <span id="snake-eyes">0</span></p>
+
+    <hr />
+    <div id="output"></div>
+  </body>
+</html>
