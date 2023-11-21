@@ -69,41 +69,31 @@ function rollNTimes() {
   }
 }
 
-// function snakeEyes() {
-//   // DISPLAY MENU TITLE
-//   outputEl.innerHTML = "<h3>ROLL UNTIL SNAKE EYES</h3>";
-//   //DEFINE
-//   let numSnakeEyes = 0;
-//   //RANDOM DICE ROLL & TOTAL
-//   while (total > 2) {
-//     let die1 = Math.floor(Math.random() * 6) + 1;
-//     let die2 = Math.floor(Math.random() * 6) + 1;
-//     let total = die1 + die2;
-//     let pEl = document.createElement("p");
-//     pEl.innerHTML = `${die1},${die2} (sum: ${total})`;
-//     outputEl.appendChild(pEl);
-//     if (total < 3) {
-//       numSnakeEyes++;
-//     }
-//   }
-
 function snakeEyes() {
   // DISPLAY MENU TITLE
   outputEl.innerHTML = "<h3>ROLL UNTIL SNAKE EYES</h3>";
 
-  //INITIALIZING --> TESTING VARIABLE --> UPDATE VARIABLE
-  while (total > 2) {
-    let SnakeEyesEl = document.getElementById("snake-eyes");
-    let numSnakeEyes = 0;
-    let die1 = Math.floor(Math.random() * 6) + 1;
-    let die2 = Math.floor(Math.random() * 6) + 1;
-    let total = die1 + die2;
+  let SnakeEyesEl = document.getElementById("snake-eyes");
+  let numSnakeEyes = 0;
+
+  // Define total, die1, and die2 OUTSIDE the loop but do not declare them
+  let total, die1, die2;
+
+  // do...while statement: loop code while both dice do NOT = 1
+  do {
+    die1 = Math.floor(Math.random() * 6) + 1;
+    die2 = Math.floor(Math.random() * 6) + 1;
+    total = die1 + die2;
+
     let pEl = document.createElement("p");
     pEl.innerHTML = `${die1},${die2} (sum: ${total})`;
     outputEl.appendChild(pEl);
-    if (total < 3) {
-      numSnakeEyes = numSnakeEyes + 1;
+
+    // numSnakeEyes only when both dice are NOT 1
+    if (die1 !== 1 && die2 !== 1) {
+      numSnakeEyes++;
       SnakeEyesEl.innerHTML = numSnakeEyes;
     }
-  }
+    // repeat until both dice = 1
+  } while (die1 !== 1 || die2 !== 1);
 }
