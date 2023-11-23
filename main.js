@@ -36,7 +36,9 @@ function rollOnce() {
   pEl.innerHTML = `${die1},${die2} (sum: ${total})`;
   outputEl.appendChild(pEl);
   let snakeEyesEl = document.getElementById("snakeEyesEl");
-  snakeEyesEl.style.display = "none";
+  if (snakeEyesEl) {
+    snakeEyesEl.style.display = "none"; // Hide snakeEyesEl if it exists
+  }
 }
 
 function roll5Times() {
@@ -53,7 +55,9 @@ function roll5Times() {
     outputEl.appendChild(pEl);
   }
   let snakeEyesEl = document.getElementById("snakeEyesEl");
-  snakeEyesEl.style.display = "none";
+  if (snakeEyesEl) {
+    snakeEyesEl.style.display = "none"; // Hide snakeEyesEl if it exists
+  }
 }
 
 function rollNTimes() {
@@ -73,14 +77,16 @@ function rollNTimes() {
     outputEl.appendChild(pEl);
   }
   let snakeEyesEl = document.getElementById("snakeEyesEl");
-  snakeEyesEl.style.display = "none";
+  if (snakeEyesEl) {
+    snakeEyesEl.style.display = "none"; // Hide snakeEyesEl if it exists
+  }
 }
 
 function snakeEyes() {
   // DISPLAY MENU TITLE
   outputEl.innerHTML = "<h3>ROLL UNTIL SNAKE EYES</h3>";
 
-  let snakeEyesEl = document.getElementById("snakeEyes");
+  let snakeEyesEl = document.getElementById("snakeEyesEl");
   snakeEyesEl.style.display = "block"; // Show the text
 
   let snakeEyesCountEl = document.getElementById("snakeEyesCount");
@@ -109,5 +115,3 @@ function snakeEyes() {
     // repeat until both dice = 1
   } while (die1 !== 1 || die2 !== 1);
 }
-
-snakeEyesEl.style.display = "none";
